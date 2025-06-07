@@ -1,9 +1,20 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+<script>
+export default {
+  components: { SignupForm },
+};
+import SignupForm from "@/components/SignupForm.vue";
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="welcome container">
+    <p>Welcome</p>
+    <SignupForm />
+  </div>
 </template>
+
+<style>
+.welcome {
+  text-align: center;
+  padding: 20px 0;
+}
+</style>
