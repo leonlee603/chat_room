@@ -25,7 +25,7 @@ const login = async (email, password) => {
     error.value = null;
 
     const user = userCredential.user;
-    console.log(user);
+    // console.log(user);
 
     return userCredential;
   } catch (err) {
