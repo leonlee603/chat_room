@@ -6,13 +6,22 @@ import { firebaseApp } from "@/firebase/config";
 
 const requireAuth = (to, from, next) => {
   let user = getAuth(firebaseApp).currentUser;
-  console.log("Current user in auth guard: ", user);
+  // console.log("Current user in auth guard: ", user);
   if (!user) {
     next({ name: "home" });
   } else {
     next();
   }
 };
+
+const requireNoAuth = (to, from, next) => {
+  let user = getAuth(firebaseApp).currentUser;
+  if (user) {
+    next({ name: "chatroom" });
+  } else {
+    next();
+  }
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +30,7 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+      beforeEnter: requireNoAuth,
     },
     {
       path: "/chatroom",
