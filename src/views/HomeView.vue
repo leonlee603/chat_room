@@ -46,6 +46,9 @@ export default {
 .title {
   margin-bottom: 20px
 }
+.welcome h2 {
+  font-size: 2rem;
+}
 .welcome form {
   width: 300px;
   margin: 20px auto;

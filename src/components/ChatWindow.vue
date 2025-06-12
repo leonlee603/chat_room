@@ -6,7 +6,7 @@
         v-for="doc in formattedDocuments"
         :key="doc.id"
         class="single"
-        :class="{ me: user.uid == doc.userUid }"
+        :class="{ me: user && user.uid == doc.userUid }"
       >
         <div class="msg-container">
           <span class="name">{{ doc.name }}</span>
