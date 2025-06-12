@@ -3,9 +3,11 @@ import { auth } from "@/firebase/config";
 import { ref } from "vue";
 
 const error = ref(null);
+const isPending = ref(false);
 
 const login = async (email, password) => {
   error.value = null;
+  isPending.value = true;
 
   try {
     const userCredential = await signInWithEmailAndPassword(
@@ -19,6 +21,7 @@ const login = async (email, password) => {
     }
 
     error.value = null;
+    isPending.value = false;
 
     const user = userCredential.user;
     // console.log(user);
@@ -43,11 +46,12 @@ const login = async (email, password) => {
       default:
         error.value = "Failed to sign in. Please try again.";
     }
+    isPending.value = false;
   }
 };
 
 const useLogin = () => {
-  return { error, login };
+  return { error, isPending, login };
 };
 
 export default useLogin;

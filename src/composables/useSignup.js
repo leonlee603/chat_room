@@ -3,9 +3,11 @@ import { auth } from "@/firebase/config";
 import { ref } from "vue";
 
 const error = ref(null);
+const isPending = ref(false);
 
 const signup = async (email, password, displayName) => {
   error.value = null;
+  isPending.value = true;
 
   try {
     // Create the user
@@ -26,7 +28,7 @@ const signup = async (email, password, displayName) => {
     });
 
     error.value = null;
-    // console.log(user);
+    isPending.value = false;
 
     console.log("user signed up");
 
@@ -47,11 +49,12 @@ const signup = async (email, password, displayName) => {
       default:
         error.value = "Failed to register. Please try again.";
     }
+    isPending.value = false;
   }
 };
 
 const useSignup = () => {
-  return { error, signup };
+  return { error, isPending, signup };
 };
 
 export default useSignup;
