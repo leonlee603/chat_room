@@ -1,12 +1,11 @@
-import { getAuth, signOut } from "firebase/auth";
-import { firebaseApp } from "@/firebase/config";
+import {  signOut } from "firebase/auth";
+import { auth } from "@/firebase/config";
 import { ref } from "vue";
 
 const error = ref(null);
 
 const logout = async () => {
   error.value = null;
-  const auth = getAuth(firebaseApp);
 
   try {
     await signOut(auth);

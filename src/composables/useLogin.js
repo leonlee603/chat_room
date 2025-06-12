@@ -1,15 +1,11 @@
-import {
-  getAuth,
-  signInWithEmailAndPassword
-} from "firebase/auth";
-import { firebaseApp } from "@/firebase/config";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebase/config";
 import { ref } from "vue";
 
 const error = ref(null);
 
 const login = async (email, password) => {
   error.value = null;
-  const auth = getAuth(firebaseApp);
 
   try {
     const userCredential = await signInWithEmailAndPassword(

@@ -1,8 +1,7 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { firebaseApp } from "@/firebase/config";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/firebase/config";
 import { ref } from "vue";
 
-const auth = getAuth(firebaseApp);
 const user = ref(auth.currentUser);
 
 onAuthStateChanged(auth, (_user) => {

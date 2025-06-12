@@ -1,16 +1,11 @@
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
-import { firebaseApp } from "@/firebase/config";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "@/firebase/config";
 import { ref } from "vue";
 
 const error = ref(null);
 
 const signup = async (email, password, displayName) => {
   error.value = null;
-  const auth = getAuth(firebaseApp);
 
   try {
     // Create the user
@@ -46,7 +41,7 @@ const signup = async (email, password, displayName) => {
         error.value = "Invalid email address.";
         break;
       case "auth/weak-password":
-        console.log('yes');
+        console.log("yes");
         error.value = "Password should be at least 6 characters.";
         break;
       default:
