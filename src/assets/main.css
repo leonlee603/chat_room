@@ -1,7 +1,7 @@
 @import './base.css';
 
 body {
-  background: #e3e1ff;
+  background: #dfdfe1;
   color: #444;
 }
 
@@ -21,7 +21,7 @@ body {
 
 button {
   text-decoration: none;
-  background: #5ae4ca;
+  background: #128ee0;
   color: white;
   font-weight: bold;
   border: 0;

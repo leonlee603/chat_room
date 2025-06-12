@@ -1,7 +1,7 @@
 <template>
   <form>
     <textarea
-      placeholder="Type a message and hit enter to send..."
+      placeholder="Type a message and hit enter to send."
       v-model="message"
       @keypress.enter.prevent="handleSubmit"
     ></textarea>
@@ -26,6 +26,7 @@ export default {
         name: user.value.displayName,
         message: message.value,
         createdAt: timestamp,
+        userUid: user.value.uid
       };
 
       // console.log(chat);

@@ -20,7 +20,7 @@ export default {
 
 <template>
   <div class="welcome container">
-    <p>Welcome</p>
+    <p class="title">Vue.js - Chatroom demo</p>
     <div v-if="showLogin">
       <h2>Login</h2>
       <LoginForm @login="enterChat" />
@@ -42,6 +42,9 @@ export default {
 .welcome {
   text-align: center;
   padding: 20px 0;
+}
+.title {
+  margin-bottom: 20px
 }
 .welcome form {
   width: 300px;

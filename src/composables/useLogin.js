@@ -29,7 +29,7 @@ const login = async (email, password) => {
     return userCredential;
   } catch (err) {
     // Handle errors based on err.code
-    // console.log(err.code);
+    console.log(err.code);
     switch (err.code) {
       case "auth/invalid-email":
         error.value = "Invalid email address.";
