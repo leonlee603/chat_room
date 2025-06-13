@@ -3,6 +3,7 @@ import SignupForm from "@/components/SignupForm.vue";
 import LoginForm from "@/components/LoginForm.vue";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+// import { Image } from "@unpic/vue";
 
 export default {
   components: { SignupForm, LoginForm },
@@ -21,18 +22,19 @@ export default {
 <template>
   <div class="welcome container">
     <p class="title">Vue.js - Chatroom demo</p>
+    <img src="/icon.png" alt="icon" width="50" height="50" />
     <div v-if="showLogin">
       <h2>Login</h2>
       <LoginForm @login="enterChat" />
       <p>
-        No account yet? <span @click="showLogin = false">Signup</span> instead
+        Dont't have an account? <span @click="showLogin = false">Signup</span>
       </p>
     </div>
     <div v-else>
       <h2>Sign up</h2>
       <SignupForm @signup="enterChat"/>
       <p>
-        Already registered <span @click="showLogin = true">Login</span> instead
+        Already have an account? <span @click="showLogin = true">Login</span>
       </p>
     </div>
   </div>
@@ -73,5 +75,8 @@ export default {
 }
 .welcome button {
   margin: 20px auto;
+}
+.welcome img {
+  margin: 20px;
 }
 </style>
